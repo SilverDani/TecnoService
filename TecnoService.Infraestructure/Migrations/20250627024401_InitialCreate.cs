@@ -56,7 +56,7 @@ namespace TecnoService.Infraestructure.Migrations
                         column: x => x.IDMarca,
                         principalTable: "Marcas",
                         principalColumn: "IDMarca",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,7 +76,7 @@ namespace TecnoService.Infraestructure.Migrations
                         column: x => x.IDPersona,
                         principalTable: "Personas",
                         principalColumn: "IDPersona",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -98,7 +98,7 @@ namespace TecnoService.Infraestructure.Migrations
                         column: x => x.IDPersona,
                         principalTable: "Personas",
                         principalColumn: "IDPersona",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,13 +119,13 @@ namespace TecnoService.Infraestructure.Migrations
                         column: x => x.IDCliente,
                         principalTable: "Clientes",
                         principalColumn: "IDCliente",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Ingreso_Dispositivos_IDDispositivo",
                         column: x => x.IDDispositivo,
                         principalTable: "Dispositivos",
                         principalColumn: "IDDispositivo",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -148,13 +148,13 @@ namespace TecnoService.Infraestructure.Migrations
                         column: x => x.IDInDis,
                         principalTable: "Ingreso",
                         principalColumn: "IDInDis",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Facturas_Trabajadores_IDTrabajador",
                         column: x => x.IDTrabajador,
                         principalTable: "Trabajadores",
                         principalColumn: "IDTrabajador",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

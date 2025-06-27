@@ -12,7 +12,7 @@ using TecnoService.Infraestructure.Data;
 namespace TecnoService.Infraestructure.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    [Migration("20250627021051_InitialCreate")]
+    [Migration("20250627024401_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -207,7 +207,7 @@ namespace TecnoService.Infraestructure.Migrations
                     b.HasOne("TecnoService.Core.Models.Persona", "Persona")
                         .WithOne("Cliente")
                         .HasForeignKey("TecnoService.Core.Models.Cliente", "IDPersona")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Persona");
@@ -218,7 +218,7 @@ namespace TecnoService.Infraestructure.Migrations
                     b.HasOne("TecnoService.Core.Models.Marca", "Marca")
                         .WithMany("Dispositivos")
                         .HasForeignKey("IDMarca")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Marca");
@@ -229,13 +229,13 @@ namespace TecnoService.Infraestructure.Migrations
                     b.HasOne("TecnoService.Core.Models.InDis", "ingreso")
                         .WithOne("Factura")
                         .HasForeignKey("TecnoService.Core.Models.Factura", "IDInDis")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("TecnoService.Core.Models.Trabajador", "Trabajador")
                         .WithMany("Facturas")
                         .HasForeignKey("IDTrabajador")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Trabajador");
@@ -248,13 +248,13 @@ namespace TecnoService.Infraestructure.Migrations
                     b.HasOne("TecnoService.Core.Models.Cliente", "Cliente")
                         .WithMany("Ingreso")
                         .HasForeignKey("IDCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("TecnoService.Core.Models.Dispositivo", "Dispositivo")
                         .WithMany("Ingreso")
                         .HasForeignKey("IDDispositivo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Cliente");
@@ -267,7 +267,7 @@ namespace TecnoService.Infraestructure.Migrations
                     b.HasOne("TecnoService.Core.Models.Persona", "Persona")
                         .WithOne("Trabajador")
                         .HasForeignKey("TecnoService.Core.Models.Trabajador", "IDPersona")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Persona");
