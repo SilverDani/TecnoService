@@ -21,7 +21,7 @@ namespace TecnoService.API.Controllers
             return Ok(Factura);
         }
 
-        [HttpGet("[ID]")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int ID)
         {
             var Factura = await FacturaServ.GetByIdAsync(ID);
@@ -41,7 +41,7 @@ namespace TecnoService.API.Controllers
                 ), factura);
         }
 
-        [HttpPut("{ID}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int ID, Factura Factura)
         {
             if (ID != Factura.IDFactura)
@@ -53,7 +53,7 @@ namespace TecnoService.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{ID}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int ID) {
             await FacturaServ.DeleteAsync(ID);
 

@@ -21,7 +21,7 @@ namespace TecnoService.API.Controllers
             return Ok(InDiss);
         }
 
-        [HttpGet("{ID}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int ID)
         {
             var InDis = await InDisServ.GetByIdAsync(ID);
@@ -41,7 +41,7 @@ namespace TecnoService.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = InDis.IDInDis }, InDis);
         }
 
-        [HttpPut("{ID}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int ID, InDis InDis)
         {
             if (ID != InDis.IDInDis)
@@ -54,7 +54,7 @@ namespace TecnoService.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{ID}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int ID)
         {
             await InDisServ.DeleteAsync(ID);

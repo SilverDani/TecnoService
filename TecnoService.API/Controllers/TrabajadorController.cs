@@ -21,7 +21,7 @@ namespace TecnoService.API.Controllers
             return Ok(Trabajadors);
         }
 
-        [HttpGet("{ID}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int ID)
         {
             var Trabajador = await TrabajadorServ.GetByIdAsync(ID);
@@ -41,7 +41,7 @@ namespace TecnoService.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = Trabajador.IDTrabajador }, Trabajador);
         }
 
-        [HttpPut("{ID}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int ID, Trabajador Trabajador)
         {
             if (ID != Trabajador.IDTrabajador)
@@ -54,7 +54,7 @@ namespace TecnoService.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{ID}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int ID)
         {
             await TrabajadorServ.DeleteAsync(ID);

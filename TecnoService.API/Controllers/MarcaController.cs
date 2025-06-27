@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TecnoService.Core.DTOs;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 
@@ -21,10 +22,10 @@ namespace TecnoService.API.Controllers
             return Ok(marcas);
         }
 
-        [HttpGet("{ID}")]
-        public async Task<IActionResult> GetById(int ID)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            var marca = await MarcaServ.GetByIdAsync(ID);
+            var marca = await MarcaServ.GetByIdAsync(id);
             if (marca == null)
             {
                 return NotFound();
@@ -34,30 +35,41 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Marca Marca)
+        public async Task<IActionResult> Create([FromBody] CrearMarcaDTO dto)
         {
-            await MarcaServ.AddAsync(Marca);
+            var nuevaMarca = new Marca{
 
-            return CreatedAtAction(nameof(GetById), new { id = Marca.IDMarca }, Marca);
+                Nombre = dto.Nombre
+            };
+
+            await MarcaServ.AddAsync(nuevaMarca);
+
+            return CreatedAtAction(nameof(GetById), new { id = nuevaMarca.IDMarca }, nuevaMarca);
         }
 
-        [HttpPut("{ID}")]
-        public async Task<IActionResult> Update(int ID, Marca Marca)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] ActualizarMarcaDTO dto)
         {
-            if (ID != Marca.IDMarca)
+            if (id != dto.IDMarca)
             {
                 return BadRequest();
             }
 
-            await MarcaServ.UpdateAsync(Marca);
+            var updateMarca = new Marca
+            {
+                IDMarca = dto.IDMarca,
+                Nombre = dto.Nombre
+            };
+
+            await MarcaServ.UpdateAsync(updateMarca);
 
             return NoContent();
         }
 
-        [HttpDelete("{ID}")]
-        public async Task<IActionResult> Delete(int ID)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            await MarcaServ.DeleteAsync(ID);
+            await MarcaServ.DeleteAsync(id);
 
             return NoContent();
         }

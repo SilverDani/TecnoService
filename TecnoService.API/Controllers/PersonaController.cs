@@ -21,7 +21,7 @@ namespace TecnoService.API.Controllers
             return Ok(Personas);
         }
 
-        [HttpGet("{ID}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int ID)
         {
             var Persona = await PersonaServ.GetByIdAsync(ID);
@@ -41,7 +41,7 @@ namespace TecnoService.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = Persona.IDPersona }, Persona);
         }
 
-        [HttpPut("{ID}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int ID, Persona Persona)
         {
             if (ID != Persona.IDPersona)
@@ -54,7 +54,7 @@ namespace TecnoService.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{ID}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int ID)
         {
             await PersonaServ.DeleteAsync(ID);
