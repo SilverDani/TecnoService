@@ -136,7 +136,7 @@
             this.btnIngresar.TabIndex = 6;
             this.btnIngresar.Text = "Realizar Ingreso";
             this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            //this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtTelefono
             // 
