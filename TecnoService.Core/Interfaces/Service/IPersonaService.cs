@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TecnoService.Core.Models;
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    internal interface IPersonaService
+    public interface IPersonaService : IServiceBase<PersonaModel>
     {
     }
 }

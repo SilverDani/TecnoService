@@ -1,6 +1,8 @@
-﻿namespace TecnoService.Core.Interfaces.Service
+﻿using TecnoService.Core.Models;
+
+namespace TecnoService.Core.Interfaces.Service
 {
-    internal interface IInDisService
+    public interface IInDisService : IServiceBase<InDisModel>
     {
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace TecnoService.Core.Interfaces.Service
+﻿using TecnoService.Core.Models;
+
+namespace TecnoService.Core.Interfaces.Service
 {
-    internal interface ITrabajadorService
+    public interface ITrabajadorService : IServiceBase<TrabajadorModel>
     {
     }
 }
