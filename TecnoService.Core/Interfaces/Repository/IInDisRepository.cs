@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public interface IInDisRepository : IRepositoryBase<InDisModel>
+    public interface IInDisRepository : IRepositoryBase<InDis>
     {
     }
 }

@@ -4,7 +4,7 @@ using TecnoService.Infraestructure.Data;
 
 namespace TecnoService.Infraestructure.Repositories
 {
-    public class PersonaRepository : RepositoryBase<PersonaModel>, IPersonaRepository
+    public class PersonaRepository : RepositoryBase<Persona>, IPersonaRepository
     {
         public PersonaRepository(ServiceContext ConPersona) : base(ConPersona)
         {

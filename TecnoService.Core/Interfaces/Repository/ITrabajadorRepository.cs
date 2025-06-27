@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public interface ITrabajadorRepository : IRepositoryBase<TrabajadorModel>
+    public interface ITrabajadorRepository : IRepositoryBase<Trabajador>
     {
     }
 }

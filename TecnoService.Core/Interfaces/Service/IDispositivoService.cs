@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IDispositivoService : IServiceBase<DispositivoModel>
+    public interface IDispositivoService : IServiceBase<Dispositivo>
     {
     }
 }

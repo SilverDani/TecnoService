@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IPersonaService : IServiceBase<PersonaModel>
+    public interface IPersonaService : IServiceBase<Persona>
     {
     }
 }

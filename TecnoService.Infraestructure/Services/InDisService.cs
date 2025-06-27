@@ -4,7 +4,7 @@ using TecnoService.Core.Models;
 
 namespace TecnoService.Infraestructure.Services
 {
-    public class InDisService : ServiceBase<InDisModel>, IInDisService
+    public class InDisService : ServiceBase<InDis>, IInDisService
     {
         public InDisService(IInDisRepository repInDis) : base(repInDis)
         {

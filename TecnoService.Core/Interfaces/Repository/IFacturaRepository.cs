@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public interface IFacturaRepository : IRepositoryBase<FacturaModel>
+    public interface IFacturaRepository : IRepositoryBase<Factura>
     {
     }
 }

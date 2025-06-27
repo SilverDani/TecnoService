@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public interface IMarcaRepository : IRepositoryBase<MarcaModel>
+    public interface IMarcaRepository : IRepositoryBase<Marca>
     {
     }
 }

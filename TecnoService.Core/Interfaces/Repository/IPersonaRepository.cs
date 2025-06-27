@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public interface IPersonaRepository : IRepositoryBase<PersonaModel>
+    public interface IPersonaRepository : IRepositoryBase<Persona>
     {
     }
 }

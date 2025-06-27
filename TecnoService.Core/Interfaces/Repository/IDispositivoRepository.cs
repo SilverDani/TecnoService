@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Repository
 {
-    public  interface IDispositivoRepository : IRepositoryBase<DispositivoModel>
+    public  interface IDispositivoRepository : IRepositoryBase<Dispositivo>
     {
     }
 }

@@ -9,57 +9,64 @@ namespace TecnoService.Infraestructure.Data
         public ServiceContext(DbContextOptions<ServiceContext> options) : base(options) { }
 
         
-        public DbSet<MarcaModel>Marcas {get;set;}
+        public DbSet<Marca>Marcas {get;set;}
 
-        public DbSet<DispositivoModel>Dispositivos{get;set;}
+        public DbSet<Dispositivo>Dispositivos{get;set;}
 
-        public DbSet<PersonaModel>Personas{get;set;}
+        public DbSet<Persona>Personas{get;set;}
 
-        public DbSet<ClienteModel>Clientes{get;set;}
+        public DbSet<Cliente>Clientes{get;set;}
 
-        public DbSet<TrabajadorModel>Trabajadores{get;set;}
+        public DbSet<Trabajador>Trabajadores{get;set;}
 
-        public DbSet<InDisModel>Ingreso{get;set;}
+        public DbSet<InDis>Ingreso{get;set;}
 
-        public DbSet<FacturaModel>Facturas{get;set;}
+        public DbSet<Factura>Facturas{get;set;}
 
 
         protected override void OnModelCreating (ModelBuilder modelB)
         {
-            modelB.Entity<ClienteModel>()
+            modelB.Entity<Cliente>()
                 .HasOne(c => c.Persona)
-                .WithOne(p => p.Cleinte)
-                .HasForeignKey<ClienteModel>(c => c.IDPersona);
+                .WithOne(p => p.Cliente)
+                .HasForeignKey<Cliente>(c => c.IDPersona)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<TrabajadorModel>()
+            modelB.Entity<Trabajador>()
                 .HasOne(t => t.Persona)
                 .WithOne(p => p.Trabajador)
-                .HasForeignKey<TrabajadorModel>(t => t.IDPersona);
+                .HasForeignKey<Trabajador>(t => t.IDPersona)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<DispositivoModel>()
+            modelB.Entity<Dispositivo>()
                 .HasOne(d => d.Marca)
                 .WithMany(m => m.Dispositivos)
-                .HasForeignKey(d => d.IDMarca);
+                .HasForeignKey(d => d.IDMarca)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<InDisModel>()
+            modelB.Entity<InDis>()
                 .HasOne(i => i.Cliente)
                 .WithMany(c => c.Ingreso)
-                .HasForeignKey(i => i.IDDispositivo);
+                .HasForeignKey(i => i.IDCliente)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<InDisModel>()
+            modelB.Entity<InDis>()
                 .HasOne(i => i.Dispositivo)
                 .WithMany(d => d.Ingreso)
-                .HasForeignKey(i => i.IDDispositivo);
+                .HasForeignKey(i => i.IDDispositivo)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<FacturaModel>()
+            modelB.Entity<Factura>()
                 .HasOne(f => f.ingreso)
                 .WithOne(i => i.Factura)
-                .HasForeignKey<FacturaModel>(f => f.IDInDis);
+                .HasForeignKey<Factura>(f => f.IDInDis)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelB.Entity<FacturaModel>()
+            modelB.Entity<Factura>()
                 .HasOne(f => f.Trabajador)
                 .WithMany(t => t.Facturas)
-                .HasForeignKey(f => f.IDTrabajador);
+                .HasForeignKey(f => f.IDTrabajador)
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelB);
         }

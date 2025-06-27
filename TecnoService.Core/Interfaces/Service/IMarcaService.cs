@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IMarcaService : IServiceBase<MarcaModel>
+    public interface IMarcaService : IServiceBase<Marca>
     {
     }
 }

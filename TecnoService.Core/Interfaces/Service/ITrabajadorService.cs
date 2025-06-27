@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface ITrabajadorService : IServiceBase<TrabajadorModel>
+    public interface ITrabajadorService : IServiceBase<Trabajador>
     {
     }
 }

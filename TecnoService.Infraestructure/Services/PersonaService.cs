@@ -4,7 +4,7 @@ using TecnoService.Core.Models;
 
 namespace TecnoService.Infraestructure.Services
 {
-    public class PersonaService : ServiceBase<PersonaModel>, IPersonaService
+    public class PersonaService : ServiceBase<Persona>, IPersonaService
     {
         public PersonaService(IPersonaRepository repPersona) : base(repPersona)
         {

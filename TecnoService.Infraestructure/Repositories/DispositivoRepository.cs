@@ -4,7 +4,7 @@ using TecnoService.Infraestructure.Data;
 
 namespace TecnoService.Infraestructure.Repositories
 {
-    public class DispositivoRepository : RepositoryBase<DispositivoModel>, IDispositivoRepository
+    public class DispositivoRepository : RepositoryBase<Dispositivo>, IDispositivoRepository
     {
         public DispositivoRepository(ServiceContext ConDispositivo) : base(ConDispositivo)
         {

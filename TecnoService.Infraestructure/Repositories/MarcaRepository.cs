@@ -4,7 +4,7 @@ using TecnoService.Infraestructure.Data;
 
 namespace TecnoService.Infraestructure.Repositories
 {
-    public class MarcaRepository : RepositoryBase<MarcaModel>, IMarcaRepository
+    public class MarcaRepository : RepositoryBase<Marca>, IMarcaRepository
     {
         public MarcaRepository(ServiceContext ConMarca) : base(ConMarca)
         {

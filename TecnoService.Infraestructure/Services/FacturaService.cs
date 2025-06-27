@@ -4,7 +4,7 @@ using TecnoService.Core.Models;
 
 namespace TecnoService.Infraestructure.Services
 {
-    public class FacturaService : ServiceBase<FacturaModel>, IFacturaService
+    public class FacturaService : ServiceBase<Factura>, IFacturaService
     {
         public FacturaService(IFacturaRepository repFactura) : base(repFactura)
         {

@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TecnoService.Core.Models
 {
-    public class DispositivoModel
+    public class Dispositivo
     {
+        [Key]
         public int IDDispositivo { get; set; }
         public int IDMarca { get; set; }
         public string Modelo { get; set; }
 
-        public MarcaModel Marca { get; set; }
-        public ICollection<InDisModel> Ingreso{get;set;}
+        public Marca Marca { get; set; }
+        public ICollection<InDis> Ingreso{get;set;}
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IInDisService : IServiceBase<InDisModel>
+    public interface IInDisService : IServiceBase<InDis>
     {
     }
 }

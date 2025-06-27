@@ -4,7 +4,7 @@ using TecnoService.Core.Models;
 
 namespace TecnoService.Infraestructure.Services
 {
-    public class ClienteService: ServiceBase<ClienteModel>, IClienteService
+    public class ClienteService: ServiceBase<Cliente>, IClienteService
     {
         public ClienteService(IClienteRepository repCliente) : base(repCliente)
         {

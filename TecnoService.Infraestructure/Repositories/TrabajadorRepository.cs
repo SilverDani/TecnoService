@@ -4,7 +4,7 @@ using TecnoService.Infraestructure.Data;
 
 namespace TecnoService.Infraestructure.Repositories
 {
-    public class TrabajadorRepository : RepositoryBase<TrabajadorModel>, ITrabajadorRepository
+    public class TrabajadorRepository : RepositoryBase<Trabajador>, ITrabajadorRepository
     {
         public TrabajadorRepository(ServiceContext ConTrabajador) : base(ConTrabajador)
         {

@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IClienteService : IServiceBase<ClienteModel>
+    public interface IClienteService : IServiceBase<Cliente>
     {
     }
 }

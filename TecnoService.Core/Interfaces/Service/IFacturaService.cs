@@ -2,7 +2,7 @@
 
 namespace TecnoService.Core.Interfaces.Service
 {
-    public interface IFacturaService : IServiceBase<FacturaModel>
+    public interface IFacturaService : IServiceBase<Factura>
     {
     }
 }
