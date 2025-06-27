@@ -1,0 +1,6 @@
+@TecnoService.API_HostAddress = http://localhost:5108
+
+GET {{TecnoService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
