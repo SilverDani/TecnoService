@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TecnoService.Core.DTOs;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 
@@ -22,9 +23,9 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int ID)
+        public async Task<IActionResult> GetById(int id)
         {
-            var InDis = await InDisServ.GetByIdAsync(ID);
+            var InDis = await InDisServ.GetByIdAsync(id);
             if (InDis == null)
             {
                 return NotFound();
@@ -34,30 +35,45 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(InDis InDis)
+        public async Task<IActionResult> Create([FromBody] CrearInDisDTO dto
+            )
         {
-            await InDisServ.AddAsync(InDis);
+            var crearInDis = new InDis
+            {
+                IDDispositivo = dto.IDDispositivo,
+                IDCliente = dto.IDCliente,
+                FechaIngreso = dto.FechaIngreso
+            };
+            await InDisServ.AddAsync(crearInDis);
 
-            return CreatedAtAction(nameof(GetById), new { id = InDis.IDInDis }, InDis);
+            return CreatedAtAction(nameof(GetById), new { id = crearInDis.IDInDis }, crearInDis);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int ID, InDis InDis)
+        public async Task<IActionResult> Update(int id, [FromBody] ActualizarInDisDTO dto
+            )
         {
-            if (ID != InDis.IDInDis)
+            if (id != dto.IDInDis)
             {
                 return BadRequest();
             }
+            var updateInDis = new InDis
+            {
+                IDInDis=dto.IDInDis,
+                IDDispositivo = dto.IDDispositivo,
+                IDCliente = dto.IDCliente,
+                FechaIngreso = dto.FechaIngreso
+            };
 
-            await InDisServ.UpdateAsync(InDis);
+            await InDisServ.UpdateAsync(updateInDis);
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int ID)
+        public async Task<IActionResult> Delete(int id)
         {
-            await InDisServ.DeleteAsync(ID);
+            await InDisServ.DeleteAsync(id);
 
             return NoContent();
         }

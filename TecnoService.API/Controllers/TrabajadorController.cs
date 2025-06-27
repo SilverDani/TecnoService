@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TecnoService.Core.DTOs;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 
@@ -22,9 +23,9 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int ID)
+        public async Task<IActionResult> GetById(int id)
         {
-            var Trabajador = await TrabajadorServ.GetByIdAsync(ID);
+            var Trabajador = await TrabajadorServ.GetByIdAsync(id);
             if (Trabajador == null)
             {
                 return NotFound();
@@ -34,30 +35,46 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Trabajador Trabajador)
+        public async Task<IActionResult> Create([FromBody] CrearTrabajadorDTO dto)
         {
-            await TrabajadorServ.AddAsync(Trabajador);
+            var crearTrabajador = new Trabajador
+            {
+                IDPersona=dto.IDPersona,
+                Email=dto.Email,
+                Telefono=dto.Telefono,
+                FechaNacimiento=dto.FechaNacimiento
+            };
+            await TrabajadorServ.AddAsync(crearTrabajador);
 
-            return CreatedAtAction(nameof(GetById), new { id = Trabajador.IDTrabajador }, Trabajador);
+            return CreatedAtAction(nameof(GetById), new { id = crearTrabajador.IDTrabajador }, crearTrabajador);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int ID, Trabajador Trabajador)
+        public async Task<IActionResult> Update(int id, [FromBody] ActualizarTrabajadorDTO dto)
         {
-            if (ID != Trabajador.IDTrabajador)
+            if (id!= dto.IDTrabajador)
             {
                 return BadRequest();
             }
 
-            await TrabajadorServ.UpdateAsync(Trabajador);
+            var updateTrabajador = new Trabajador
+            {
+                IDTrabajador = dto.IDTrabajador,
+                IDPersona = dto.IDPersona,
+                Email = dto.Email,
+                Telefono = dto.Telefono,
+                FechaNacimiento = dto.FechaNacimiento
+            };
+
+            await TrabajadorServ.UpdateAsync(updateTrabajador);
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int ID)
+        public async Task<IActionResult> Delete(int id)
         {
-            await TrabajadorServ.DeleteAsync(ID);
+            await TrabajadorServ.DeleteAsync(id);
 
             return NoContent();
         }

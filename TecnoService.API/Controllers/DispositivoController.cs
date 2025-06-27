@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
+using TecnoService.Core.DTOs;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 
@@ -23,9 +24,9 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int ID)
+        public async Task<IActionResult> GetById(int id)
         {
-            var dispo = await dispositivoServ.GetByIdAsync(ID);
+            var dispo = await dispositivoServ.GetByIdAsync(id);
 
             if(dispo == null)
             {
@@ -35,27 +36,42 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Dispositivo dispositivo){
-            await dispositivoServ.AddAsync(dispositivo);
+        public async Task<IActionResult> Create([FromBody] CrearDispositivoDTO dto)
+        {
+            var nuevoDispositivo = new Dispositivo
+            {
+                IDMarca = dto.IDMarca,
+                Modelo = dto.Modelo
+            };
 
-            return CreatedAtAction(nameof(GetById), new { ID = dispositivo.IDDispositivo }, dispositivo);
+            await dispositivoServ.AddAsync(nuevoDispositivo);
+
+            return CreatedAtAction(nameof(GetById), new { id = nuevoDispositivo.IDDispositivo }, nuevoDispositivo);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int ID, Dispositivo dispo)
+        public async Task<IActionResult> Update(int id, [FromBody] ActualizarDispositivoDTO dto)
         {
-            if(ID!= dispo.IDDispositivo)
+            if(id!= dto.IDDispositivo)
             {
                 return BadRequest();
             }
-            await dispositivoServ.UpdateAsync(dispo);
+
+            var updateDispo = new Dispositivo
+            {
+                IDDispositivo = dto.IDDispositivo,
+                IDMarca = dto.IDMarca,
+                Modelo = dto.Modelo
+            };
+
+            await dispositivoServ.UpdateAsync(updateDispo);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int ID)
+        public async Task<IActionResult> Delete(int id)
         {
-            await dispositivoServ.DeleteAsync(ID);
+            await dispositivoServ.DeleteAsync(id);
             return NoContent();
         }
 

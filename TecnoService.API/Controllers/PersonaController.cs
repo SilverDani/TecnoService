@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TecnoService.Core.DTOs;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 
@@ -22,9 +23,9 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int ID)
+        public async Task<IActionResult> GetById(int id)
         {
-            var Persona = await PersonaServ.GetByIdAsync(ID);
+            var Persona = await PersonaServ.GetByIdAsync(id);
             if (Persona == null)
             {
                 return NotFound();
@@ -34,30 +35,44 @@ namespace TecnoService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Persona Persona)
+        public async Task<IActionResult> Create([FromBody] CrearPersonaDTO dto)
         {
-            await PersonaServ.AddAsync(Persona);
+            var crearPersona = new Persona
+            {
+                Nombre = dto.Nombre,
+                Apellido = dto.Apellido,
+                Documento = dto.Documento
+            };
+            await PersonaServ.AddAsync(crearPersona);
 
-            return CreatedAtAction(nameof(GetById), new { id = Persona.IDPersona }, Persona);
+            return CreatedAtAction(nameof(GetById), new { id = crearPersona.IDPersona }, crearPersona);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int ID, Persona Persona)
+        public async Task<IActionResult> Update(int id, [FromBody] ActualizarPersonaDTO dto)
         {
-            if (ID != Persona.IDPersona)
+            if (id != dto.IDPersona)
             {
                 return BadRequest();
             }
 
-            await PersonaServ.UpdateAsync(Persona);
+            var updatePersona = new Persona
+            {
+                IDPersona = dto.IDPersona,
+                Nombre = dto.Nombre,
+                Apellido = dto.Apellido,
+                Documento = dto.Documento
+            };
+
+            await PersonaServ.UpdateAsync(updatePersona);
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int ID)
+        public async Task<IActionResult> Delete(int id)
         {
-            await PersonaServ.DeleteAsync(ID);
+            await PersonaServ.DeleteAsync(id);
 
             return NoContent();
         }
