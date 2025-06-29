@@ -101,27 +101,75 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Ventanas\AdmMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Ventanas\AdmMarcas.Designer.cs">
+      <DependentUpon>AdmMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AdmPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AdmPersonas.Designer.cs">
+      <DependentUpon>AdmPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AdmTrabajadodres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AdmTrabajadodres.Designer.cs">
+      <DependentUpon>AdmTrabajadodres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\agregarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\agregarMarca.Designer.cs">
+      <DependentUpon>agregarMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\Facturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\Facturar.Designer.cs">
+      <DependentUpon>Facturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\IngresoDis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\IngresoDis.Designer.cs">
+      <DependentUpon>IngresoDis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menú.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú.Designer.cs">
+      <DependentUpon>Menú.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Menú.resx">
+      <DependentUpon>Menú.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Ventanas\AdmMarcas.resx">
+      <DependentUpon>AdmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\AdmPersonas.resx">
+      <DependentUpon>AdmPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\AdmTrabajadodres.resx">
+      <DependentUpon>AdmTrabajadodres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\agregarMarca.resx">
+      <DependentUpon>agregarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\Facturar.resx">
+      <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\IngresoDis.resx">
+      <DependentUpon>IngresoDis.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,7 +189,7 @@
     <Content Include="Resources\delete_3356414.png" />
     <Content Include="Resources\expandir-ventana.png" />
     <Content Include="Resources\minimizar.png" />
-    <None Include="Resources\TukaPhone Logo.png" />
+    <None Include="Resources\TecnoService Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

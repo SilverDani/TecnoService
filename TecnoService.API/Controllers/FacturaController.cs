@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TecnoService.Core.DTOs;
-using TecnoService.Core.Interfaces.Repository;
 using TecnoService.Core.Interfaces.Service;
 using TecnoService.Core.Models;
 

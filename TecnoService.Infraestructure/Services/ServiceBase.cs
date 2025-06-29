@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TecnoService.Core.Interfaces.Repository;
+﻿using TecnoService.Core.Interfaces.Repository;
 using TecnoService.Core.Interfaces.Service;
 
 namespace TecnoService.Infraestructure.Services

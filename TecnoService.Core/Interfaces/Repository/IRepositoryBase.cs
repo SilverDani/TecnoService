@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace TecnoService.Core.Interfaces.Repository
+﻿namespace TecnoService.Core.Interfaces.Repository
 {
     public interface IRepositoryBase<T> where T : class
     {
