@@ -16,5 +16,10 @@ namespace TecnoService.Desktop.Ventanas
         {
             InitializeComponent();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
